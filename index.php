@@ -1,4 +1,5 @@
-<?php class Production
+<?php
+class Production
 {
     public $title;
     public $language;
@@ -7,33 +8,32 @@
 
     function __construct($_title, $_language, $_vote, $_release_year)
     {
-
-        $this->$title = $this->setTitle($_title);
-        $this->$language = $_language;
-        $this->$vote = $this->setVote($_vote);
-        $this->$release_year = $this->setReleaseYear($_release_year);
+        $this->setTitle($_title);
+        $this->language = $_language;
+        $this->setVote($_vote);
+        $this->setReleaseYear($_release_year);
     }
 
 
 
     public function getTitle()
     {
-        return $this->$title;
+        return $this->title;
     }
 
     function getLanguage()
     {
-        return $this->$language;
+        return $this->language;
     }
 
     function getVote()
     {
-        return $this->$vote;
+        return $this->vote;
     }
 
     function getReleaseYear()
     {
-        return $this->$release_year;
+        return $this->release_year;
     }
 
 
@@ -41,25 +41,25 @@
     public function setTitle($_title)
     {
         if (is_string($_title) && strlen($_title) >= 1) {
-            $this->$title = $_title;
+            $this->title = $_title;
         } else {
-            $this->$title = null;
+            $this->title = null;
         }
     }
 
     function setLanguage($_language)
     {
         if (is_string($_language) && strlen($_language) > 1 && strlen($_language) < 4) {
-            $this->$language = $_language;
+            $this->language = $_language;
         }
     }
 
     function setVote($_vote)
     {
         if (is_numeric($_vote) && $_vote >= 0 && $_vote <= 10) {
-            $this->$vote = $_vote;
+            $this->vote = $_vote;
         } else {
-            $this->$vote = null;
+            $this->vote = null;
         }
     }
 
@@ -69,9 +69,9 @@
             is_numeric($_release_year) && is_integer($_release_year)
             && $_release_year >= 1891 && $_release_year < 2024
         ) {
-            $this = $_release_year;
+            $this->release_year = $_release_year;
         } else {
-            $this->$release_year = null;
+            $this->release_year = null;
         }
     }
 };
@@ -89,4 +89,9 @@ $films_array = [
 ];
 
 
-// var_dump($film_1);
+foreach ($films_array as $film) { ?>
+    <h2><?php echo $film->getTitle() ?></h2>
+    <p>Language: <?php echo $film->getLanguage() ?></p>
+    <p>Vote: <?php echo $film->getVote() ?></p>
+    <p>Release year: <?php echo $film->getReleaseYear() ?></p>
+<?php } ?>
