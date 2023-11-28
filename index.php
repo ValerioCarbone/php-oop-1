@@ -49,4 +49,27 @@
             $this->$release_year = null;
         }
     }
+
+    function __construct($_title, $_language, $_vote, $_release_year)
+    {
+
+        $this->$title = setTitle($_title);
+        $this->$language = $_language;
+        $this->$vote = setVote($_vote);
+        $this->$release_year = setRelY($_release_year);
+    }
 };
+
+$film_1 = new Production('The Wolf of Wall Street', 'En', 8.5, 2013);
+$film_2 = new Production('Oldboy', 'Kr', 8, 2003);
+$film_3 = new Production('Il marchese del Grillo', 'It', 8, 1981);
+
+
+$films_array = [
+    $film_1,
+    $film_2,
+    $film_3
+];
+
+
+var_dump($film_1);
