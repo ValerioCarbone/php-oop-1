@@ -85,7 +85,8 @@ $film_3 = new Production('Il marchese del Grillo', 'It', 8, 1981);
 $films_array = [
     $film_1,
     $film_2,
-    $film_3
+    $film_3,
+    new Production('Star Wars: Episode III - Revenge of the Sith', 'En', 7.5, 2005)
 ];
 
 
