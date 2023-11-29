@@ -34,11 +34,11 @@ foreach ($production_array as $item) { ?>
     <p>Language: <?php echo $item->getLanguage(); ?></p>
     <p>Vote: <?php echo $item->getVote(); ?></p>
     <p>Release year: <?php echo $item->getReleaseYear(); ?></p>
-    <?php if ($item->getProfit() && $item->getDuration()) { ?>
+    <?php if (null !== $item->getProfit() && null !== $item->getDuration()) { ?>
         <p>Box Office: <?php echo $item->getProfit(); ?> milions</p>
         <p>Duration:<?php echo $item->getDuration(); ?> min.</p>
     <?php }
-    if ($item->getSeason()) { ?>
+    if (null !== $item->getSeason()) { ?>
         <p>N° of seasons: <?php echo $item->getSeason(); ?></p>
 <?php }
 } ?>
