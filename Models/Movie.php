@@ -7,9 +7,16 @@ class Movie extends Production
     private $profit;
     private $duration;
 
+    // CONSTRUCT
+
+    function __construct($title, $language, $vote, $release_year, $profit, $duration)
+    {
+        parent::__construct($title, $language, $vote, $release_year);
+        $this->setProfit($profit);
+        $this->setDuration($duration);
+    }
 
     // GET
-
 
     function getProfit()
     {
@@ -20,7 +27,6 @@ class Movie extends Production
     {
         return $this->duration;
     }
-
 
     // SET
 
