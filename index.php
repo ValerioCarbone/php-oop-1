@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/Models/Production.php';
+require_once __DIR__ . '/Models/Movie.php';
 
 
 $film_1 = new Production('The Wolf of Wall Street', 'En', 9, 2013);
