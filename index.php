@@ -9,7 +9,7 @@ class Production
     function __construct($_title, $_language, $_vote, $_release_year)
     {
         $this->setTitle($_title);
-        $this->language = $_language;
+        $this->setLanguage($_language);
         $this->setVote($_vote);
         $this->setReleaseYear($_release_year);
     }
