@@ -4,11 +4,11 @@ require_once __DIR__ . '/Models/Production.php';
 require_once __DIR__ . '/Models/Movie.php';
 require_once __DIR__ . '/Models/Serie.php';
 
-$movie_1 = new Movie('The Wolf of Wall Street', 'En', 9, 2013, 180, 406.9);
-$movie_2 = new Movie('Oldboy', 'Kr', 8, 2003, 116, 17.1);
-$movie_3 = new Movie('Il marchese del Grillo', 'It', 8, 1981, 139, 6.2);
-$movie_4 = new Movie('Star Wars: Episode III - Revenge of the Sith', 'En', 7.5, 2005, 140, 113);
-$movie_5 = new Movie('Interstellar', 'En', 8.5, 2014, 169, 165);
+$movie_1 = new Movie('The Wolf of Wall Street', 'En', 9, 2013, 406.9, 180);
+$movie_2 = new Movie('Oldboy', 'Kr', 8, 2003, 17.1, 116);
+$movie_3 = new Movie('Il marchese del Grillo', 'It', 8, 1981, 6.2, 139);
+$movie_4 = new Movie('Star Wars: Episode III - Revenge of the Sith', 'En', 7.5, 2005, 113, 140);
+$movie_5 = new Movie('Interstellar', 'En', 8.5, 2014, 165, 169);
 
 $serie_1 = new Serie('Games of Thrones', 'En', 7.5, 2011, 8);
 $serie_2 = new Serie('Breaking Bad', 'En', 9.5, 2008, 5);
@@ -29,16 +29,17 @@ $production_array = [
     $serie_5
 ];
 
+var_dump($production_array);
+
 foreach ($production_array as $item) { ?>
     <h2><?php echo $item->getTitle(); ?></h2>
     <p>Language: <?php echo $item->getLanguage(); ?></p>
     <p>Vote: <?php echo $item->getVote(); ?></p>
     <p>Release year: <?php echo $item->getReleaseYear(); ?></p>
-    <?php if (null !== $item->getProfit() && null !== $item->getDuration()) { ?>
-        <p>Box Office: <?php echo $item->getProfit(); ?> milions</p>
+    <?php if ($item instanceof Movie) { ?>
         <p>Duration:<?php echo $item->getDuration(); ?> min.</p>
     <?php }
-    if (null !== $item->getSeason()) { ?>
+    if ($item instanceof Serie) { ?>
         <p>N° of seasons: <?php echo $item->getSeason(); ?></p>
 <?php }
 } ?>
